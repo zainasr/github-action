@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
       - name: Build-Test
         id: build-test
-        uses: ./.github/workflows/build-test.yml
+        uses: zainasr/github-action/.github/workflows/build-test.yml@main
         with:
           node-version: '18'
           run-lint: true
