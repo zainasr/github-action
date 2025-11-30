@@ -32,7 +32,8 @@ jobs:
 
     steps:
       - name: Setup Node.js
-        uses: ./github/actions/setup-node
+        id: setup-node
+        uses: ./.github/actions/setup-node
         with:
           node-version: ${{ inputs.node-version }}
 
