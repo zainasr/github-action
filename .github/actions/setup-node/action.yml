@@ -1,0 +1,21 @@
+name: 'Node.js Setup'
+description: 'Setup Node.js'
+inputs:
+  node-version: # id of input
+    description: 'Node.js version'
+    required: true
+    default: '18'
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@d7a11313b581b306c961b506cfc8971208bb03f6 # v4.4.0
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: npm
+        cache-dependency-path: package-lock.json
+    - name: Install dependencies
+      run: npm ci --prefer-offline --no-audit
+      shell: bash
+   
+     
+     

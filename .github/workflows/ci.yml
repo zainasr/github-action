@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: app-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    outputs:
+      build-test-status: ${{ steps.build-test.outputs.status }}
+
+    steps:
+      - uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
+      - name: Build-Test
+        id: build-test
+        uses: ./github/workflows/build-test
+        with:
+          node-version: '18'
+          run-lint: true
+  Deploy:
+    runs-on: ubuntu-latest
+    needs: Build
+    if: success() && github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy
+        run: echo "Deploying..."
+  
+      
+      
+
+
+      
+          
