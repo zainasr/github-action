@@ -1,0 +1,24 @@
+{
+    "name": "frontend-app",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "start": "webpack serve --open",
+      "build": "webpack --mode production",
+      "test": "echo \"No FE tests yet\" && exit 0"
+    },
+    "dependencies": {
+      "react": "^18.0.0",
+      "react-dom": "^18.0.0"
+    },
+    "devDependencies": {
+      "webpack": "^5.0.0",
+      "webpack-cli": "^5.0.0",
+      "webpack-dev-server": "^4.0.0",
+      "babel-loader": "^9.0.0",
+      "@babel/core": "^7.23.0",
+      "@babel/preset-env": "^7.23.0",
+      "@babel/preset-react": "^7.23.0"
+    }
+  }
+  
