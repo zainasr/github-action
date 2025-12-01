@@ -34,7 +34,7 @@ jobs:
           # Point cache action at the specific lock-file path
           cache-dependency-path: backend/package-lock.json
       - name: Install dependencies
-        run: npm install --prefer-offline --no-audit
+        run: npm ci -- prefer-offline --no-audit
       - name: Run lint
         run: npm run lint
       - name: Run tests
